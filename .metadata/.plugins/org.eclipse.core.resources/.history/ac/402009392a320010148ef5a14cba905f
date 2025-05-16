@@ -1,0 +1,22 @@
+package dao;
+
+import domain.Member;
+
+//DAO
+//DATA ACCESS OBJECT
+public class MemberDao {
+	// insert
+	// select
+	
+	public void insert(Member member) {
+		
+	}
+	
+	public Member selectOne(String id) {
+		return null;
+	}
+	
+	public Member selectOne(Long no) {
+		return null;
+	}
+}
