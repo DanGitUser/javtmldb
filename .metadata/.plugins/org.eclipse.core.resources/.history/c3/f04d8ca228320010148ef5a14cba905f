@@ -1,9 +1,0 @@
-package domain;
-
-
-//DAO
-//DATA ACCESS OBJECT
-
-public class MemberDao {
-	
-}
