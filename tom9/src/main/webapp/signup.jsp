@@ -5,28 +5,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Sign Up</title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
 </head>
 <style>
-fieldset {
-	width: 100px;
-}
+	legend {text-align: center}	
+	p {text-align: center}
+	input {align: center}
+	label {text-align: center}
 </style>
 <body>
 	<form method="post" class="container">
 		<fieldset>
-			<legend>SignUp</legend>
-			<p>ID
+			<legend class="my-5">SignUp</legend>
 			<p>
-				<input name="id">
-			<p>PW
+				<label for="id" class="form-label">ID</label>
+			</p>
+			<input name="id" id="id" class="form-control mb-5">
 			<p>
-				<input name="pw" type="password">
-			<p>NAME
+				<label for="pw" class="form-label">PW</label>
+			</p>
+			<input name="pw" type="password" class="form-control mb-5">
 			<p>
-				<input name="name">
-			<hr>
-			<button type = 'submit'>SignUp</button>
+				<label for="name" class="form-label">NAME</label>
+			</p>
+				<input name="name" id="name" class="form-control mb-5">
+			<div class="d-grid">
+				<button type='submit' class="btn btn-outline-info btn-block">SignUp</button>
+			</div>				
 		</fieldset>
 	</form>
 </body>
