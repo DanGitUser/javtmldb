@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인페이지</title>
 </head>
 <body>
-	<h1>MAIN PAGE</h1>
-	<% if(session.getAttribute("member") == null)  { %>
-	<p><a href = "signup">SignUp</a></p>
-	<p><a href = "signin">LogIn</a></p>
-	<% } else { %>
-	<p>$Welcome {member.name}</p>
-	<p><a href = "signout">LogOut</a></p>
-	<% } %>
+	<h1>메인 페이지</h1>
+	<% if(session.getAttribute("member") == null){ %>
+	<p><a href="signup">회원가입</a></p>
+	<p><a href="signin">로그인</a></p>
+	<%} else { %>
+	<p>${member.name}님 환영합니다</p>
+	<p><a href="signout">로그아웃</a></p>
+	<%} %>
 </body>
 </html>

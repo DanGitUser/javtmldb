@@ -1,9 +1,0 @@
-package dao;
-
-
-//DAO
-//DATA ACCESS OBJECT
-
-public class MemberDao {
-	
-}

@@ -1,9 +1,0 @@
-package dao.copy;
-
-
-//DAO
-//DATA ACCESS OBJECT
-
-public class MemberDao {
-	
-}
