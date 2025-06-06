@@ -6,12 +6,12 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
-			<item value="reviewAPI"/>
+			<item value="my_proxy"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="reviewAPI"/>
+			<item value="my_proxy"/>
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>

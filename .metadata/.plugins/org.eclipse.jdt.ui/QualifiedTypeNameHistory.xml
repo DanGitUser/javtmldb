@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.Stack"/>
-    <fullyQualifiedTypeName name="java.util.Queue"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.util.LinkedList"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-    <fullyQualifiedTypeName name="com.zaxxer.hikari.HikariConfig"/>
-    <fullyQualifiedTypeName name="org.mariadb.jdbc.Driver"/>
-    <fullyQualifiedTypeName name="com.zaxxer.hikari.HikariDataSource"/>
-    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
-    <fullyQualifiedTypeName name="java.io.InputStream"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.io.Resources"/>
-    <fullyQualifiedTypeName name="util.hikariCPUtil"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.transaction.TransactionFactory"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="util.MybatisUtil"/>
-    <fullyQualifiedTypeName name="mapper.ReviewMapper"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Insert"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Select"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="lombok.Delegate"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
-    <fullyQualifiedTypeName name="review_api.ReviewServlet"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="service.ReviewService"/>
-    <fullyQualifiedTypeName name="domain.Review"/>
-    <fullyQualifiedTypeName name="javax.servlet.Filter"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.WebFilter"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>
