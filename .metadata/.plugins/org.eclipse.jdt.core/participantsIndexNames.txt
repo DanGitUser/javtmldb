@@ -1,7 +1,0 @@
-INDEX VERSION 1.134
-D:\Repository\server_test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1095081840.index
-\tom9\src\main\java
-D:\Repository\server_test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3546872880.index
-\tom10\src\main\java
-D:\Repository\server_test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1374184491.index
-\BookFlixTest\src\main\java
