@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import domain.Board;
 import mapper.BoardMapper;
 import util.MybatisUtil;
+import util.PasswordEncoder;
 
 public class BoardService {
 
@@ -28,6 +29,15 @@ public class BoardService {
             e.printStackTrace();
         }
         return null;
-    }
+	}
+
+	public void write(Board board) {
+		try (SqlSession session = MybatisUtil.getSqlSession()) {
+            BoardMapper mapper = session.getMapper(BoardMapper.class);
+            mapper.insert(board);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
 	
 }

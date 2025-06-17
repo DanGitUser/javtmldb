@@ -11,11 +11,11 @@ public interface BoardMapper {
 	
 	Board selectOne(Long bno);
 	
-	int insert(Long no);	
+	void insert(Board board);	
 	
 	int delete(Long rno);
 	
 	int update(Long board);
 
-	
+
 }

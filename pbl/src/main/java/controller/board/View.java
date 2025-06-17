@@ -11,24 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Board;
 import service.BoardService;
+import util.AlertUtil;
 
 @WebServlet("/board/view")
 public class View extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String bno = req.getParameter("bno");
-		if(bno == null) {
-			resp.setContentType("text/html; charset=utf-8");
-			PrintWriter pw = resp.getWriter();
-			pw.print("<script>");
-			pw.print("alert('Wrong Path');");
-			pw.print("location.href = 'list'");
-			pw.print("</script>");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
+		if(req.getParameter("bno") == null) {
+			AlertUtil.alert("Please Login first", "/board/login",  req, resp);
 			return;
 		}
 		BoardService service = new BoardService();
-		Board board = service.findByNo(Long.parseLong(bno));
+		Board board = service.findByNo(Long.parseLong(req.getParameter("bno")));
 		req.setAttribute("board", board);
 		req.getRequestDispatcher("/WEB-INF/views/board/view.jsp").forward(req, resp);	
 	}

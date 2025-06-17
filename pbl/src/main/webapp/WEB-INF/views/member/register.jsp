@@ -9,10 +9,11 @@
 <body>
 	<form method="post">
 		<input name="id" placeholder="id">
-		<input type="password" name="pw" placeholder="pw">
 		<input name="name" placeholder="name">
 		<input name="email" placeholder="email">
+		<input type="password" name="pw" placeholder="pw">
 		<button>가입</button>
 	</form>
+
 </body>
 </html>
