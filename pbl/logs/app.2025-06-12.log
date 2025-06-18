@@ -1,0 +1,233 @@
+11:18:46.399 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 8 msec}
+11:18:46.421 INFO  resultsettable - 
+|---|----|-----|-----|------|--------------------|
+|no |id  |pw   |name |email |regdate             |
+|---|----|-----|-----|------|--------------------|
+|4  |sae |1234 |null |null  |2025-06-11 18:14:28 |
+|---|----|-----|-----|------|--------------------|
+
+11:18:46.438 INFO  MemberService - Member(no=4, id=sae, pw=1234, name=null, email=null, regdate=2025-06-11 18:14:28)
+11:18:51.975 INFO  LogTest - Info log
+11:18:51.976 WARN  LogTest - warn log
+11:18:51.976 ERROR LogTest - error log
+11:19:14.867 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 8 msec}
+11:19:14.890 INFO  resultsettable - 
+|---|----|-----|-----|------|--------------------|
+|no |id  |pw   |name |email |regdate             |
+|---|----|-----|-----|------|--------------------|
+|4  |sae |1234 |null |null  |2025-06-11 18:14:28 |
+|---|----|-----|-----|------|--------------------|
+
+11:19:14.909 INFO  MemberService - Member(no=4, id=sae, pw=1234, name=null, email=null, regdate=2025-06-11 18:14:28)
+11:53:44.963 INFO  sqltiming - insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$1YSrv/Cz/iZ75VgX5YTSzeQIJyIsev2S8r0p8m7DVIAeWoHhrQh36', '새똥이', NULL)
+ {executed in 8 msec}
+12:09:42.500 WARN  ErrorPacket - Error: 1062-23000: Duplicate entry 'sae' for key 'id'
+12:09:42.505 ERROR audit - 1. PreparedStatement.execute() insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$U.mP1W8PBYics/gvRnO/G.nkRtLLxnwhveQUwYjbnkIqMkFAlWz16', '새똥이', NULL)
+
+java.sql.SQLIntegrityConstraintViolationException: (conn=1088) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:53)
+12:09:42.507 ERROR sqlonly - 1. PreparedStatement.execute() insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$U.mP1W8PBYics/gvRnO/G.nkRtLLxnwhveQUwYjbnkIqMkFAlWz16', '새똥이', NULL)
+
+java.sql.SQLIntegrityConstraintViolationException: (conn=1088) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:53)
+12:09:42.508 ERROR sqltiming - 1. PreparedStatement.execute() FAILED! insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$U.mP1W8PBYics/gvRnO/G.nkRtLLxnwhveQUwYjbnkIqMkFAlWz16', '새똥이', NULL)
+ {FAILED after 12 msec}
+java.sql.SQLIntegrityConstraintViolationException: (conn=1088) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:53)
+12:09:50.885 WARN  ErrorPacket - Error: 1062-23000: Duplicate entry 'sae' for key 'id'
+12:09:50.888 ERROR audit - 1. PreparedStatement.execute() insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$Jw.aUJz.lr93D7XceIYPm.v2fKAd5HK1C5mHhtjQc4B3ceu6Wvrbu', '새똥이', NULL)
+
+java.sql.SQLIntegrityConstraintViolationException: (conn=1092) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:54)
+12:09:50.891 ERROR sqlonly - 1. PreparedStatement.execute() insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$Jw.aUJz.lr93D7XceIYPm.v2fKAd5HK1C5mHhtjQc4B3ceu6Wvrbu', '새똥이', NULL)
+
+java.sql.SQLIntegrityConstraintViolationException: (conn=1092) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:54)
+12:09:50.891 ERROR sqltiming - 1. PreparedStatement.execute() FAILED! insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$Jw.aUJz.lr93D7XceIYPm.v2fKAd5HK1C5mHhtjQc4B3ceu6Wvrbu', '새똥이', NULL)
+ {FAILED after 12 msec}
+java.sql.SQLIntegrityConstraintViolationException: (conn=1092) Duplicate entry 'sae' for key 'id'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:297)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:187)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:1364)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:1303)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:1222)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:1146)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:87)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:232)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.insert(Unknown Source)
+	at service.MemberService.register(MemberService.java:18)
+	at service.MemberService.main(MemberService.java:54)
+12:11:16.548 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 8 msec}
+12:11:16.568 INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|5  |sae |$2a$10$1YSrv/Cz/iZ75VgX5YTSzeQIJyIsev2S8r0p8m7DVIAeWoHhrQh36 |새똥이  |null  |2025-06-12 11:53:44 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:14:34.062 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 8 msec}
+12:14:34.081 INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|5  |sae |$2a$10$1YSrv/Cz/iZ75VgX5YTSzeQIJyIsev2S8r0p8m7DVIAeWoHhrQh36 |새똥이  |null  |2025-06-12 11:53:44 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:16:23.717 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 7 msec}
+12:16:23.739 INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|5  |sae |$2a$10$1YSrv/Cz/iZ75VgX5YTSzeQIJyIsev2S8r0p8m7DVIAeWoHhrQh36 |새똥이  |null  |2025-06-12 11:53:44 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:16:24.055 INFO  MemberService - true
+12:16:24.062 INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 5 msec}
+12:16:24.070 INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|5  |sae |$2a$10$1YSrv/Cz/iZ75VgX5YTSzeQIJyIsev2S8r0p8m7DVIAeWoHhrQh36 |새똥이  |null  |2025-06-12 11:53:44 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:16:24.148 ERROR MemberService - false

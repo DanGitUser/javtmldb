@@ -11,8 +11,34 @@
 <%@ include file="../common/nav.jsp" %>
 	<div class="container p-0">
         <main>
-            <div class="clearfix py-0">
-                <a href="write" class="btn btn-primary btn-sm  float-end"><i class="fa-solid fa-pen-fancy"></i> 글쓰기</a>
+            <div class="clearfix py-0 row align-items-center">
+            	<div class="col-2">
+            		<select class="form-select form-select-sm">
+  						<option>10개씩보기</option>
+  						<option>20개씩보기</option>
+  						<option>50개씩보기</option>
+  						<option>100개씩보기</option>
+					</select>
+            	</div>
+			    <form class="col input-group">
+            		<select class="form-select form-select-sm" name="type">
+  						<option value="T">제목</option>
+  						<option value="C">내용</option>
+  						<option value="I">작성자</option>
+  						<option value="TC">제목+내용</option>
+  						<option value="TI">제목+작성자</option>
+  						<option value="CI">내용+작성자</option>
+  						<option value="TCI">제목+내용+작성자</option>
+					</select>
+			    	<input type="text" class="form-control form-control-sm w-75" placeholder="Search" name="keyword">
+			    	<input type="hidden" name="page" value="1">
+			    	<input type="hidden" name="amount" value="${pageDto.cri.amount}">
+			    	<input type="hidden" name="cno" value="${pageDto.cri.cno}">
+  					<button class="btn btn-dark btn-sm" type="submit">Go</button>
+			    </form>
+			    <div class="col-2">
+                	<a href="write" class="btn btn-dark btn-sm  float-end"><i class="fa-solid fa-pen-fancy"></i> 글쓰기</a>
+			    </div>
             </div>
             <div class="list-group">
                 <div class="list-group-item small">
@@ -49,6 +75,29 @@
                     </div>
                 </a>
                 </c:forEach>
+                <div>
+            </div>
+            <ul class="pagination justify-content-center pt-4">
+            	<c:if test="${pageDto.doubleLeft}">
+  					<li class="page-item"><a class="page-link" href="list?cno=${pageDto.cri.cno}&page=1&amount=${pageDto.cri.amount}"><i class="fa-solid fa-angles-left"></i></a></li>
+  				</c:if>
+  				
+  				<c:if test="${pageDto.left}">
+  					<li class="page-item"><a class="page-link" href="list?cno=${pageDto.cri.cno}&page=${pageDto.start-1}&amount=${pageDto.cri.amount}"><i class="fa-solid fa-angle-left"></i></a></li>
+  				</c:if>
+  				
+  				<c:forEach begin="${pageDto.start}" end="${pageDto.end}" var="i">
+	  				<li class="page-item ${pageDto.cri.page == i ? 'active' : ''}"><a class="page-link" href="list?cno=${pageDto.cri.cno}&page=${i}&amount=${pageDto.cri.amount}">${i}</a></li>
+  				</c:forEach>
+  				
+  				<c:if test="${pageDto.right}">
+  					<li class="page-item"><a class="page-link" href="list?cno=${pageDto.cri.cno}&page=${pageDto.end+1}&amount=${pageDto.cri.amount}"><i class="fa-solid fa-angle-right"></i></a></li>
+  				</c:if>
+  				
+  				<c:if test="${pageDto.doubleRight}">
+  					<li class="page-item"><a class="page-link" href="list?cno=${pageDto.cri.cno}&page=${pageDto.realEnd}&amount=${pageDto.cri.amount}"><i class="fa-solid fa-angles-right"></i></a></li>
+  				</c:if>
+			</ul>
         </main>
     </div>
 <%@ include file="../common/footer.jsp" %>
