@@ -1,0 +1,225 @@
+09:53:21.491 INFO  PageDto - PageDto(cri=Criteria(page=12, amount=10, cno=2, type=null, keyword=null), total=123, start=11, end=13, left=true, right=false, doubleLeft=true, doubleRight=true, realEnd=13)
+10:50:11.253 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 9 msec}
+10:50:23.769 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 10 msec}
+10:56:19.379 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 7 msec}
+10:56:19.406 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:09:26.509 INFO  sqltiming - select * from tbl_board 
+         WHERE cno = 2 
+
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 8 msec}
+11:09:26.560 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.562 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.563 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.563 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.563 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.564 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.564 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.564 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.564 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.564 INFO  BoardMapperTest - 새똥이의 글
+11:09:26.574 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 7 msec}
+11:09:26.576 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:09:49.150 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 12 msec}
+11:09:49.186 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:11:33.104 INFO  BoardMapperTest - [T, C, I]
+11:11:33.160 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 13 msec}
+11:11:33.208 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:13:34.653 INFO  BoardMapperTest - [T, C, I]
+11:13:34.692 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 8 msec}
+11:13:34.717 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:13:52.639 INFO  BoardMapperTest - [T, C, I]
+11:13:52.723 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 7 msec}
+11:13:52.772 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:16:19.506 INFO  BoardMapperTest - [T, C, I]
+11:16:19.569 INFO  sqltiming - select * from tbl_board 
+         WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        			or
+        				id like concat('%', '새똥이', '%')
+
+        		) 
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 10 msec}
+11:16:19.605 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 6 msec}
+11:16:19.608 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:16:34.317 INFO  BoardMapperTest - [T, C, I]
+11:16:34.376 INFO  sqltiming - select * from tbl_board 
+         WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        			or
+        				id like concat('%', '새똥이', '%')
+
+        		) 
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 8 msec}
+11:16:34.406 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.408 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.409 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.409 INFO  BoardMapperTest - 새똥이의 글
+11:16:34.439 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 8 msec}
+11:16:34.442 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+11:34:12.997 INFO  BoardMapperTest - [T, C]
+11:34:13.071 INFO  sqltiming - select * from tbl_board 
+         WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        		) 
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 9 msec}
+11:34:13.102 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.104 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.105 INFO  BoardMapperTest - 새똥이의 글
+11:34:13.117 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 7 msec}
+11:34:13.121 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+15:51:51.119 INFO  BoardMapperTest - [T, C]
+15:51:51.234 INFO  sqltiming - select * from tbl_board 
+
+	 WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        		) 
+
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 10 msec}
+15:51:51.266 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.267 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.268 INFO  BoardMapperTest - 새똥이의 글
+15:51:51.277 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 6 msec}
+15:51:51.277 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+15:51:51.302 INFO  sqltiming - select * from tbl_board where bno = 1000
+ {executed in 11 msec}
+15:53:56.818 INFO  BoardMapperTest - [T, C]
+15:53:56.933 INFO  sqltiming - select * from tbl_board 
+
+	 WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        		) 
+
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 23 msec}
+15:53:56.989 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.990 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.990 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.990 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.990 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.991 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.991 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.991 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.991 INFO  BoardMapperTest - 새똥이의 글
+15:53:56.991 INFO  BoardMapperTest - 새똥이의 글
+15:53:57.001 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 5 msec}
+15:53:57.002 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+15:53:57.023 INFO  sqltiming - select * from tbl_board where bno = 1000
+ {executed in 7 msec}
+15:55:39.261 INFO  BoardMapperTest - [T, C]
+15:55:39.332 INFO  sqltiming - select * from tbl_board 
+
+	 WHERE cno = 2
+
+        		and (
+
+        				title like concat('%', '새똥이', '%')
+
+        			or
+        				content like concat('%', '새똥이', '%')
+
+        		) 
+
+        order by bno desc 
+        limit 10 offset 20
+ {executed in 9 msec}
+15:55:39.362 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.368 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.369 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.369 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.370 INFO  BoardMapperTest - 새똥이의 글
+15:55:39.388 INFO  sqltiming - select * from tbl_board where bno = 1
+ {executed in 7 msec}
+15:55:39.390 INFO  BoardMapperTest - Board(bno=1, title=새똥이의 글, content=찬, id=sae, regdate=2025-06-18 11:08:39, moddate=2025-06-18 11:08:39, cnt=0, cno=2)
+15:55:39.450 INFO  sqltiming - select * from tbl_board where bno = 700
+ {executed in 6 msec}
+15:55:39.460 INFO  sqltiming - update tbl_board set
+	title = 'Title edit only',
+	content = 'Edited Content',
+	moddate = now(),
+	cno = 2
+	where bno = 700;
+ {executed in 6 msec}

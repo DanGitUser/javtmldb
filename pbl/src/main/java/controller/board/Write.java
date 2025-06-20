@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.member.Register;
 import domain.Board;
+import domain.dto.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import service.BoardService;
 import util.AlertUtil;
@@ -22,21 +23,23 @@ public class Write extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	    Criteria cri = Criteria.init(req);
 		if(req.getSession().getAttribute("member") == null) {
-			AlertUtil.alert("Please Login first", "/member/login",  req, resp, true);
+			AlertUtil.alert("Please Login first", "/member/login?" + cri.getQs2(),  req, resp, true);
 			return;
 		}
-		
+		req.setAttribute("cri", cri);
 		req.getRequestDispatcher("/WEB-INF/views/board/write.jsp").forward(req, resp);	
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Session check
-		if(req.getSession().getAttribute("member") == null) {
-			AlertUtil.alert("Please Login first", "/member/login",  req, resp, true);
-			return;
-		}
+	    Criteria cri = Criteria.init(req);
+        if(req.getSession().getAttribute("member") == null) {
+            AlertUtil.alert("Please Login first", "/member/login?" + cri.getQs2(),  req, resp, true);
+            return;
+        }
 		
 		// Get Parameter
 		String title = req.getParameter("title");
@@ -52,7 +55,7 @@ public class Write extends HttpServlet {
 		new BoardService().write(board);
 		
 		//Redirecton
-		AlertUtil.alert("Posted Successfully", "/board/list?cno=2", req, resp);
+		AlertUtil.alert("Posted Successfully", "/board/list?cno=" + cri.getQs() + "&amount=" + cri.getAmount() , req, resp);
 		
 	}
 

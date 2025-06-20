@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form method="post">
-		<input name="id" placeholder="id">
-		<input type="password" name="pw">
+		<input name="id" value="gitbaby">
+		<input type="password" name="pw" value="1234">
 		<button>로그인</button>
 	</form>
 </body>
