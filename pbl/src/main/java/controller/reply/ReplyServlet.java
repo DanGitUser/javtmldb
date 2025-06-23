@@ -66,15 +66,19 @@ public class ReplyServlet extends HttpServlet{
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String ret = String.join("", req.getReader().lines().toList());      
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	  //insert
+        String ret = String.join("", req.getReader().lines().toList());     
         Reply reply = new Gson().fromJson(ret, Reply.class);
-        new ReplyService().register(reply);
         
-        resp.setContentType("application/json; charset=utf8");
-        resp.getWriter().print(new Gson().toJson(Map.of("result", true)));
-	}
-
+        // 이 시점 rno == null 
+        new ReplyService().register(reply);
+        // 이 시점 rno == not null
+        
+        resp.setContentType("application/json; charset=utf-8");
+        resp.getWriter().print(new Gson().toJson(Map.of("result", true, "reply", reply)));
+    }
+	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
         String ret = String.join("", req.getReader().lines().toList());      

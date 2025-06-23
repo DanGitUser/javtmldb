@@ -63,8 +63,10 @@
      		</div>
        	</div>
        	
-      	<ul class="list-group list-group-flush mt-3 reviews">
-       	</ul>     	
+      	<ul class="list-group list-group-flush mt-3 reviews"></ul>   
+       	<div class="d-grid">
+       		<button class="btn btn-primary btn-block btn-reply-more d-none">Load More...</button>
+       	</div>  	
  	</main>
 </div>
 <!-- The Modal -->
@@ -108,18 +110,10 @@
         	const bno = '${board.bno}';
             const url = '${cp}'+ '/reply/';
             const modal = new bootstrap.Modal($("#reviewModal").get(0), {});
-            function list(bno, lastRno) {
-            	lastRno = lastRno ? ('/' + lastRno) : '';
-            	let reqUrl = url + 'list/' + bno + lastRno;
-            	
-                $.ajax({
-                    url : reqUrl,
-                    success: function (data) {
-                        if (!data) return;
-                        let str = ''; 
-                        for (let r of data) {
-                            console.log(r);
-                            str += `
+            
+            // makeReplyLi(reply) 
+            function makeReplyLi(r) {
+            	return `
                 <li class="list-group-item ps-5 profile-img" data-rno="\${r.rno}">
                     <p class="small text-secondary">                       
                         <span class="me-3">\${r.id}</span>
@@ -130,8 +124,29 @@
                     <button class="btn btn-warning btn-sm float-end mx-3 btn-modify-form">수정</button>
                 </li>
                         `;
+            }
+            
+            function list(bno, lastRno) {
+            	lastRno = lastRno ? ('/' + lastRno) : '';
+            	let reqUrl = url + 'list/' + bno + lastRno;
+                $.ajax({
+                    url : reqUrl,
+                    success: function (data) {
+                        if (!data || data.length === 0) {
+                        	if ($(".reviews li").length == 0) {	
+                        		$(".reviews").html('<li class="list-group-item text-center text-muted">No Comments</li>');
+							} else {
+								$(".btn-reply-more").prop("disabled", true).test("No More Comments to Load");
+							}
+                        	return;
                         }
-                        $(".reviews").html(str);
+                        $(".btn-reply-more").removeClass("d-none");
+                        let str = ''; 
+                        for (let r of data) {
+                            console.log(r);
+                            str += makeReplyLi(r);
+                        }
+                        $(".reviews").append(str);
                     }
                 });
             }
@@ -143,7 +158,7 @@
                 $("#reviewModal form").get(0).reset();
                 $("#reviewModal .modal-footer button").show().eq(1).hide();
                 modal.show();
-            })
+            });
             
             // 글쓰기 버튼 이밴트 btn-write-submit
             $(".btn-write-submit").click(function () {
@@ -164,11 +179,13 @@
                     success : function (data) {
                         if(data.result) {
                             modal.hide();
-                            list(bno);
+                            data.reply.regdate = dayjs().format(dayform);
+                            const strLi = makeReplyLi(data.reply);
+                            $(".reviews").prepend(strLi);
                         }
                     }
-                })
-            })
+                });
+            });
             
             // 글수정 폼 활성화 btn-modify-form
             $(".reviews").on("click", ".btn-modify-form", function () {
@@ -181,8 +198,8 @@
                     $("#reviewModal").data("rno", rno);
                     console.log(data);
                     modal.show();
-                })       
-            })
+                });     
+            });
             
             // 글수정 버튼 이밴트 btn-modify-submit
             $(".btn-modify-submit").click(function () {
@@ -204,12 +221,18 @@
                     data : JSON.stringify(obj),
                     success : function (data) {
                         if(data.result) {
-                            list(bno);
                             modal.hide();
+                           	$getJSON(url + rno, function(data) {
+                           		console.log(data);
+                           		const strLi = makeReplaceLi(data);
+                           		
+                           		const $li = $(`.reviews li[data-rno='\${rno}']`);
+                           		$li.replaceWith(strLi);
+                           	})
                         }
                     }
-                })
-            })
+                });
+            });
             
             // 글삭제 버튼 이밴트 btn-remove-submit
             $(".reviews").on("click", ".btn-remove-submit", function () {
@@ -217,18 +240,28 @@
                 const result = confirm("삭제 하시겠습니까?")
                 if (!result) return; // return false;
                 
-                const rno = $(this).closest("li").data("rno");
+                const $li = $(this).closest("li")
+                const rno = $li.data("rno");
                 console.log("글삭제");
                 $.ajax({
                     url : url + rno,
                     method : 'DELETE',
                     success : function (data) {
                         if(data.result) {
-                            list(bno);
+                        	$li.remove();
                         }
                     }
-                })
-            })            
+                });
+            }); 
+            
+            //
+            $(".btn-reply-more").click(function() {
+            	// Bring the cno of the last comment of the current list
+            	const lastRno = $(".reviews li:last").data("rno");
+            	console.log(lastRno);
+            	list(bno, lastRno);
+            	
+            });
         });
 
     </script>

@@ -47,7 +47,9 @@ public class ReplyMapperTest {
     @DisplayName("Insert test")
     public void testInsert() {
         Reply reply = Reply.builder().content("content test insert").id("gitbaby").bno(800L).build();
+        log.info("{}", reply);
         replyMapper.insert(reply);
+        log.info("{}", reply);
     }
     
     @Test
