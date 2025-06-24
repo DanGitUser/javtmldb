@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.BoardMapper">
+	<resultMap type="board" id="b">
+		<id property="bno" column="bno"/>
+    	<result column="title" property="title"/>
+    	<result column="content" property="content"/>
+    	<result column="id" property="id"/>
+    	<result column="regdate" property="regdate"/>
+    	<result column="moddate" property="moddate"/>
+    	<result column="cnt" property="cnt"/>
+    	<result column="cno" property="cno"/>
+	</resultMap>
 	<sql id="criteria">
 	<where>
         	<trim prefixOverrides="AND | OR">
@@ -27,16 +37,16 @@
 	</sql>
 	
 	<!-- List View -->
-    <select id="list" resultType="domain.Board">
-        select * from tbl_board 
-        <include refid="criteria"></include>
-        order by bno desc 
+    <select id="list" resultMap="b">
+        select bno, title, content, id, regdate, moddate, cnt, cno from tbl_board 
+        <include refid="criteria" />
+        order by bno desc
         limit #{amount} offset #{offset}
     </select>
     
     <!-- Single View -->
     <select id="selectOne" resultType="board">
-        select * from tbl_board where bno = #{bno}
+        select bno, title, content, id, regdate, moddate, cnt, cno from tbl_board where bno = #{bno}
     </select>
     
     <!-- Upload Content -->

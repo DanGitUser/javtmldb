@@ -13,5 +13,5 @@ public class Attach {
 	private String origin;
 	private Long bno;
 	private Long rno;
-	
+	private int odr;
 }

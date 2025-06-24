@@ -6,6 +6,7 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="happygivers2"/>
 			<item value="bookflix"/>
 			<item value="pbl"/>
 			<item value="01_servlet"/>
@@ -14,6 +15,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="happygivers2"/>
 			<item value="bookflix"/>
 			<item value="pbl"/>
 			<item value="01_servlet"/>

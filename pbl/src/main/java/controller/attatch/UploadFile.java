@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +21,7 @@ import com.google.gson.Gson;
 
 import domain.Attach;
 import lombok.extern.slf4j.Slf4j;
+import net.coobird.thumbnailator.Thumbnails;
 
 @WebServlet("/upload")
 @MultipartConfig(location = "d:/upload/tmp", 
@@ -41,6 +41,8 @@ public class UploadFile extends HttpServlet{
         Collection<Part> parts = req.getParts();
         final String UPLOAD_PATH = "d:/upload/files";
         List<Attach> attachs = new ArrayList<>();
+        
+        int odr = 0;
         for (Part part : parts) {
             if (part.getSize() == 0) {
                 continue;
@@ -69,6 +71,13 @@ public class UploadFile extends HttpServlet{
             }
             
             part.write(realPath + fileName);
+            if (image) {
+                try {
+                    Thumbnails.of(new File(realPath + fileName)).size(150, 150).toFile(realPath + "t_" + fileName);                    
+                } catch (Exception e) {
+                    image = false;
+                }
+            }
             
             log.info("{} :: {} :: {} :: {}", fileSize, origin, contentType, ext);
             attachs.add(Attach.builder()
@@ -76,6 +85,7 @@ public class UploadFile extends HttpServlet{
                     .origin(origin)
                     .image(image)
                     .path(path)
+                    .odr(odr++)
                     .build());
         }
         resp.setContentType("application/json; charset=utf-8");
