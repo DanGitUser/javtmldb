@@ -94,7 +94,7 @@ public class UploadFile extends HttpServlet{
     }
     
     private String genPath() {
-        return new SimpleDateFormat("yyy/MM/dd").format(new Date());
+        return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
     }
     
 }

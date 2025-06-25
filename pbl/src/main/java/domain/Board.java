@@ -39,6 +39,7 @@ public class Board {
         this.cno = cno;
     }
     
-    
+    @Builder.Default
+    private List<Attach> attachs = new ArrayList<>();
     
 }
